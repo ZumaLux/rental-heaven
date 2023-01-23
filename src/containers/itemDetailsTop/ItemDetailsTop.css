@@ -1,0 +1,123 @@
+.item-details-top {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.item-details-top__img-container {
+  width: 49%;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.item-details-top__img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.item-details-top__info-container {
+  width: 49%;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family);
+  justify-content: space-between;
+}
+.item-details-top__title {
+  width: 100%;
+  padding: 0.5rem 0;
+  font-weight: bold;
+  text-align: center;
+  background: yellow;
+}
+
+.item-details-top__info {
+  width: 100%;
+  height: 100%;
+  column-count: 2;
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: grey;
+  font-style: italic;
+}
+
+.item-details-top__price {
+  width: 100%;
+  text-align: center;
+  background-color: aqua;
+  padding: 0.5rem;
+}
+
+.item-details-top__buttons {
+  width: 100%;
+  margin-top: 1rem;
+}
+.item-details-top__buttons .edit-btn {
+  width: 49%;
+  background: orange;
+  padding: 0.5rem;
+  float: left;
+  border: none;
+  border-radius: 1rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+.item-details-top__buttons .del-btn {
+  width: 49%;
+  background: red;
+  padding: 0.5rem;
+  float: right;
+  border: none;
+  border-radius: 1rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+.item-details-top__buttons .rent-btn {
+  width: 100%;
+  background: rgb(15, 151, 15);
+  padding: 0.5rem;
+  border: none;
+  border-radius: 1rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 820px) {
+  .item-details-top {
+    flex-direction: column;
+    width: 100%;
+  }
+  .item-details-top__img-container {
+    width: 100%;
+    border-radius: 0;
+  }
+  .item-details-top__info-container {
+    width: 100%;
+  }
+  .item-details-top__info {
+    text-align: center;
+  }
+  .item-details-top__buttons {
+    text-align: center;
+  }
+  .item-details-top__buttons .edit-btn {
+    border-radius: 0 1rem 1rem 0;
+    float: left;
+    font-weight: normal;
+  }
+  .item-details-top__buttons .del-btn {
+    border-radius: 1rem 0 0 1rem;
+    font-weight: normal;
+  }
+  .item-details-top__buttons .rent-btn {
+    width: 90%;
+    font-weight: normal;
+  }
+}
+@media screen and (max-width: 480px) {
+  .item-details-top {
+    font-size: 0.9rem;
+  }
+}

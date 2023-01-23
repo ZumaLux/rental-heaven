@@ -1,0 +1,185 @@
+.car-form-container {
+  z-index: 3;
+  position: fixed;
+}
+
+.overlay {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: all;
+}
+
+.car-form {
+  position: fixed;
+  z-index: 2;
+  width: 50%;
+  max-width: 900px;
+  max-height: fit-content;
+  height: fit-content;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  margin: 0 auto;
+  padding: 25px 30px;
+  border-radius: 5px;
+  text-align: left;
+  font-family: var(--font-family);
+  flex-wrap: wrap;
+}
+
+.car-form .title {
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+
+.car-form .title .close-btn {
+  float: right;
+}
+.car-form .title .close-btn:hover {
+  cursor: pointer;
+  color: red;
+  transition: 0.1s;
+}
+
+.car-form .title::before {
+  content: "";
+  position: absolute;
+  top: -0.3rem;
+  height: 3px;
+  width: 30px;
+  background: #9b59b6;
+}
+
+.car-form .car-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 15px 0;
+}
+
+.car-form .car-details .input-box {
+  width: calc(100% / 3 - 20px);
+}
+
+.input-box .details {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.input-box input,
+.input-box select {
+  height: 45px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  margin-bottom: 1.5rem;
+  font-size: 16px;
+  transition: all 0.3 ease;
+}
+
+.input-box input {
+  cursor: text;
+}
+.input-box select {
+  cursor: pointer;
+}
+
+.input-box input:focus,
+.input-box select:focus,
+.input-box input:valid,
+.input-box select:valid {
+  border-color: #9b59b6;
+  border-bottom-width: 2px;
+}
+
+form .car-reg-button {
+  height: 45px;
+  margin: 15px 0;
+  width: 100%;
+  outline: none;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+form .car-reg-button:hover {
+  background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+  .car-form {
+    width: 80%;
+  }
+}
+
+/* Nest Hub Responsive */
+@media screen and (max-height: 800px) {
+  .car-form .car-details {
+    max-height: 30vh;
+    overflow-y: scroll;
+  }
+  .input-box input,
+  .input-box select {
+    height: 30px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+  }
+  .car-form .car-reg-button {
+    font-size: 1rem;
+    height: 35px;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .car-form {
+    width: 95%;
+  }
+
+  .car-form .car-details {
+    max-height: 40vh;
+    overflow-y: scroll;
+  }
+
+  .car-form .car-details::-webkit-scrollbar {
+    width: 0;
+  }
+
+  .car-form .title {
+    font-size: 1.3rem;
+  }
+
+  .car-form .car-details .input-box {
+    width: calc(100% / 2 - 20px);
+    font-size: 0.9rem;
+  }
+  .input-box input,
+  .input-box select {
+    height: 30px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+  }
+  .car-form .car-reg-button {
+    font-size: 1rem;
+    height: 35px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+}

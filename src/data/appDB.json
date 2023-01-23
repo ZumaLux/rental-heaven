@@ -1,0 +1,341 @@
+{
+  "cars": [
+    {
+      "id": "2a6c2217-2341-46c2-9d42-ab142e626f4b",
+      "brand": "Hyundai",
+      "model": "i20",
+      "year": "2022",
+      "fuel": "petrol",
+      "img": "https://image.motor.at/images/cfs_landscape_1232w_693h/4697250/hyundai-all-new-i20-driving-02.jpg",
+      "price": "19"
+    },
+    {
+      "id": "7a0ec7b4-7697-4882-9ccb-94841999036f",
+      "brand": "Renault",
+      "model": "Clio",
+      "year": "2021",
+      "fuel": "petrol",
+      "img": "https://www.evanshalshaw.com/-/media/evanshalshaw/renault/car-models/clio/renault-clio-driving-720x405px.ashx?mh=1440&la=en&h=405&w=720&mw=2560&hash=7DEAB4CE9E06D315D1A2628D75E68677",
+      "price": "23"
+    },
+    {
+      "id": "d2e6a911-518c-4f30-8dd4-0446be96ce1c",
+      "brand": "Peugeot",
+      "model": "208",
+      "year": "2022",
+      "fuel": "diesel",
+      "img": "https://static.motor.es/fotos-noticias/2022/05/precio-peugeot-208-2022-202287027-1652720240_1.jpg",
+      "price": "24"
+    },
+    {
+      "id": "a812712c-8c44-434a-98e8-ff201ee39431",
+      "brand": "Citroen",
+      "model": "C4",
+      "year": "2021",
+      "fuel": "diesel",
+      "img": "https://www.topgear.com/sites/default/files/cars-car/image/2020/12/_mg_2297.jpg",
+      "price": "26"
+    },
+    {
+      "id": "3a171787-a06b-40ab-a3d5-0ecd9121f692",
+      "brand": "Opel",
+      "model": "Astra",
+      "year": "2022",
+      "fuel": "diesel",
+      "img": "https://media.1815.io/topgear/i/full/2022/04/Opel-astra-1.6-turbo-hybrid-gs-line-rijder-3-4-voor.jpg",
+      "price": "27"
+    },
+    {
+      "id": "246ed69a-086a-4287-b52d-59ee86d1c954",
+      "brand": "Toyota",
+      "model": "Corolla",
+      "year": "2021",
+      "fuel": "hybrid",
+      "img": "https://scene7.toyota.eu/is/image/toyotaeurope/toyota-corolla-hatchback-2019-overview-01-full:Medium-Landscape?ts=1661220404490",
+      "price": "29"
+    },
+    {
+      "id": "616bd71c-46e4-49e5-9c94-5a11ccec3e8b",
+      "brand": "VW",
+      "model": "Golf",
+      "year": "2021",
+      "fuel": "petrol",
+      "img": "https://o.aolcdn.com/images/dims3/GLOB/legacy_thumbnail/1062x597/format/jpg/quality/100/https://s.aolcdn.com/os/ab/_cms/2021/06/01105531/IMG_69341.jpg",
+      "price": "34"
+    },
+    {
+      "id": "952405a7-a2fb-41fb-98b8-b23fcc102c89",
+      "brand": "Audi",
+      "model": "A4",
+      "year": "2020",
+      "fuel": "diesel",
+      "img": "https://audimediacenter-a.akamaihd.net/system/production/media/87623/images/ab698ab934ad7ee485d260ff1d2569be289629dc/A1915496_x750.jpg?1582587184",
+      "price": "30"
+    },
+    {
+      "id": "0571c971-28d0-4aa4-b882-df261de3c0dd",
+      "brand": "Tesla",
+      "model": "Model S",
+      "year": "2022",
+      "fuel": "electric",
+      "img": "https://pictures.topspeed.com/IMG/crop/201808/next-gen-tesla-model-4_800x0w.jpg",
+      "price": "75"
+    },
+    {
+      "id": "cef100cf-88d0-4642-8be3-2a8bd49c6bb2",
+      "brand": "BMW",
+      "model": "3-Series",
+      "year": "2020",
+      "fuel": "diesel",
+      "img": "https://hips.hearstapps.com/hmg-prod/images/2020-bmw-m340i-v-2020-genesis-g70-3p3t-1016-hdr-1571838328.jpg?crop=0.673xw:0.824xh;0.0717xw,0.176xh&resize=640:*",
+      "price": "25"
+    },
+    {
+      "id": "445a6695-5629-452b-8315-ce4a7f1edcea",
+      "brand": "Audi",
+      "model": "A5",
+      "year": "2020",
+      "fuel": "diesel",
+      "img": "https://www.mad4wheels.com/img/free-car-images/mobile/17548/audi-a5-sportback-2020-557952.jpg",
+      "price": "35"
+    },
+    {
+      "id": "4394dc05-8394-46fa-a751-34a5ce5bbef3",
+      "brand": "Seat",
+      "model": "Leon",
+      "year": "2016",
+      "fuel": "diesel",
+      "img": "https://www.auto-data.net/images/f4/file9284968.jpg",
+      "price": "20"
+    },
+    {
+      "id": "2b9d9f5a-b2d8-4bae-9d10-6faf212e4319",
+      "brand": "Peugeot",
+      "model": "308",
+      "year": "2016",
+      "fuel": "diesel",
+      "img": "https://editorial.pxcrush.net/carsales/general/editorial/180329_peugeot_308_wagon_02.jpg?width=1024&height=683",
+      "price": "20"
+    },
+    {
+      "id": "87389bf0-382a-47b3-92ed-91c009a6bd76",
+      "brand": "Mazda",
+      "model": "3",
+      "year": "2015",
+      "fuel": "petrol",
+      "img": "https://i2.wp.com/practicalmotoring.com.au/wp-content/uploads/2015/02/image119468_b.jpg",
+      "price": "15"
+    },
+    {
+      "id": "63019dda-f35a-411d-8d86-8d84f41ab5e3",
+      "brand": "Hyundai",
+      "model": "Tucson",
+      "year": "2019",
+      "fuel": "petrol",
+      "img": "https://cdn.jdpower.com/ArticleImages/2019%20Hyundai%20Tucson%20Large-32128%20635.jpg",
+      "price": "15"
+    },
+    {
+      "id": "4314f3b9-f831-425d-9fa2-7de1f448b4de",
+      "brand": "Opel",
+      "model": "Corsa",
+      "year": "2019",
+      "fuel": "petrol",
+      "img": "https://autofans.be/sites/default/files/styles/artikel_intro/public/media/2019/Opel/anderefotos/opel-corsa-2019_01.jpg?itok=GYKHGFIr",
+      "price": "19"
+    },
+    {
+      "id": "cb88a149-f006-471e-b75f-22d7b49a42c9",
+      "brand": "Seat",
+      "model": "Ibiza",
+      "year": "2020",
+      "fuel": "petrol",
+      "img": "https://i.pinimg.com/originals/87/85/2d/87852d99a699c4a2aed4780ff10b91d1.jpg",
+      "price": "15"
+    },
+    {
+      "id": "809d9737-0de1-4f04-b15d-3a5837b5ceeb",
+      "brand": "Fiat",
+      "model": "Punto",
+      "year": "2018",
+      "fuel": "petrol",
+      "img": "https://www.reezocar.com/raw/subito.it/RZCSBTIT412460007/FIAT-PUNTO-00.jpg",
+      "price": "13"
+    },
+    {
+      "id": "2a583750-c5df-4855-b286-679997164627",
+      "brand": "Renault",
+      "model": "Arkana",
+      "year": "2021",
+      "fuel": "petrol",
+      "img": "https://cdn.motor1.com/images/mgl/Kj1PM/s1/renault-arkana-2020.webp",
+      "price": "20"
+    },
+    {
+      "id": "2add89ec-e912-4753-847a-2e9f11dc3e73",
+      "brand": "Mazda",
+      "model": "6",
+      "year": "2021",
+      "fuel": "diesel",
+      "img": "https://www.automotiveaddicts.com/wp-content/uploads/2021/05/2021-mazda6-signature.jpg",
+      "price": "25"
+    },
+    {
+      "id": "06919b07-7563-491f-b08f-917681777297",
+      "brand": "Toyota",
+      "model": "Camry",
+      "year": "2019",
+      "fuel": "diesel",
+      "img": "https://djx5h8pabpett.cloudfront.net/wp-content/uploads/2018/06/21124819/ToyotaCamryHybrid2019.jpg",
+      "price": "32"
+    },
+    {
+      "id": "40e6da73-523b-4793-91c8-f583e46986a9",
+      "brand": "asddd 56",
+      "model": "asd 415",
+      "fuel": "diesel",
+      "year": "2000",
+      "t": "manual",
+      "ac": "yes",
+      "doors": "3",
+      "seats": "4",
+      "img": "aasd",
+      "extras": "kuche, kote ",
+      "discount": "15",
+      "price": "34"
+    },
+    {
+      "id": "5a9197db-b3a8-4c5a-8529-d71efc39e088",
+      "brand": "test",
+      "model": "test4",
+      "fuel": "petrol",
+      "year": "2000",
+      "t": "automatic",
+      "ac": "no",
+      "doors": "3",
+      "seats": "4",
+      "img": "aasd",
+      "extras": "",
+      "discount": "",
+      "price": "234"
+    },
+    {
+      "id": "f645ffa5-6603-4af4-b98c-1f2e9d0614e8",
+      "brand": "asdf",
+      "model": "test",
+      "fuel": "diesel",
+      "year": "2001",
+      "t": "manual",
+      "ac": "yes",
+      "doors": "3",
+      "seats": "4",
+      "img": "aasd",
+      "extras": "",
+      "discount": "",
+      "price": "234"
+    },
+    {
+      "id": "f9156da1-ed35-4478-9864-714ec86277d7",
+      "brand": "asdf",
+      "model": "test",
+      "fuel": "diesel",
+      "year": "2001",
+      "t": "manual",
+      "ac": "yes",
+      "doors": "3",
+      "seats": "4",
+      "img": "aasd",
+      "extras": "",
+      "discount": "",
+      "price": "234"
+    },
+    {
+      "id": "7a87f0c1-38ae-41e0-aab8-a185929a8ebc",
+      "brand": "asdf",
+      "model": "test",
+      "fuel": "diesel",
+      "year": "2001",
+      "t": "manual",
+      "ac": "yes",
+      "doors": "3",
+      "seats": "4",
+      "img": "aasd",
+      "extras": "",
+      "discount": "",
+      "price": "234"
+    },
+    {
+      "id": "c76496d4-f97a-4b48-8c94-33322e1c0411",
+      "brand": "asdf",
+      "model": "test",
+      "fuel": "petrol",
+      "year": "2001",
+      "t": "manual",
+      "ac": "yes",
+      "doors": "3",
+      "seats": "4",
+      "img": "aasd",
+      "extras": "",
+      "discount": "",
+      "price": "234"
+    }
+  ],
+  "customers": [
+    {
+      "id": "2f1b6d76-e86a-4bed-8f94-588a02467f07",
+      "role": "customer",
+      "name": "one",
+      "surname": "one",
+      "email": "one@one",
+      "phone": "12342342",
+      "img": "",
+      "password": "$2a$05$4D2VGY3pFZWbc6a33wvgyu81PYJsMZrBDPtap6B/mjM9GTaliZh0K"
+    },
+    {
+      "id": "30417dc6-b229-481e-9728-1fd1eb4b4529",
+      "role": "admin",
+      "name": "kuche",
+      "surname": "muche",
+      "email": "kuche@laika.com",
+      "phone": "2346534563",
+      "img": "",
+      "password": "$2a$05$sf8K4tcUrORqdU6qND7gXekjYDdzjxqbOR75LN/o0nqCSaIqX1zni"
+    },
+    {
+      "id": "87a9065f-9ed7-4052-9842-4bff4ed8b147",
+      "role": "customer",
+      "name": "234",
+      "surname": "234",
+      "email": "234@123",
+      "phone": "123",
+      "img": "123",
+      "password": "$2a$05$hTo0NKUc3epEP/Usjx1oP.Bu9cTXDtxnj4uEJ4sTJM8Vd/0JurJ22"
+    },
+    {
+      "id": "4278f5a7-9ba6-4eae-bb48-fd8017bd4971",
+      "role": "customer",
+      "name": "234@123",
+      "surname": "234@123",
+      "email": "234@123",
+      "phone": "234@123",
+      "img": "",
+      "password": "$2a$05$PSFOOm2BPvEkh0hf2BJUQu8AzDJp/teMSbREThk9Rc.ZWY.NTk4Ju"
+    }
+  ],
+  "rentals": [
+    {
+      "id": 0,
+      "start": "20.06.2022",
+      "end": "25.06.2022",
+      "vehicle": {
+        "brand": "Opel",
+        "model": "Astra",
+        "img": "https://s1.cdn.autoevolution.com/images/gallery/OPELAstra5Doors-422_7.jpg",
+        "price": 20
+      },
+      "customer": {
+        "name": "Ivan"
+      }
+    }
+  ]
+}

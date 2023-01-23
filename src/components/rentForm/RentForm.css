@@ -1,0 +1,106 @@
+.rent-form-container {
+  position: absolute;
+}
+
+.overlay {
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: all;
+}
+
+.rent-form {
+  z-index: 3;
+  position: fixed;
+  width: 35rem;
+  height: fit-content;
+  background-color: antiquewhite;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 25px 30px;
+  border-radius: 5px;
+  text-align: left;
+  font-family: var(--font-family);
+  flex-wrap: wrap;
+}
+
+.rent-form .title {
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.rent-form .title .close-btn {
+  float: right;
+}
+.rent-form .title .close-btn:hover {
+  cursor: pointer;
+  color: red;
+  transition: 0.1s;
+}
+
+.rent-form .title::before {
+  content: "";
+  position: absolute;
+  top: -0.3rem;
+  height: 3px;
+  width: 30px;
+  background: #9b59b6;
+}
+
+.rent-form form {
+  font-style: italic;
+}
+
+.rent-form form input {
+  height: 45px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 16px;
+  transition: all 0.3 ease;
+}
+
+.rent-form .date-container {
+  width: 100%;
+  display: flex;
+  margin-top: 1rem;
+  justify-content: space-between;
+}
+
+.rent-form .date-container div {
+  width: 48%;
+  margin: 0.5rem 0;
+}
+
+.rent-form .total {
+  width: 100%;
+  text-align: right;
+}
+
+form .rent-button {
+  height: 45px;
+  margin: 15px 0;
+  width: 100%;
+  outline: none;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+form .rent-button:hover {
+  background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+  cursor: pointer;
+}
