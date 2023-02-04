@@ -2,44 +2,12 @@ import React, { useEffect, useState } from "react";
 import ShortInfo from "../../components/shortInfo/ShortInfo";
 import VehicleForm from "../../components/VehicleForm/VehhicleForm";
 import "./ItemDetailsTop.css";
-import { useNavigate } from "react-router-dom";
 import RentForm from "../../components/rentForm/RentForm";
 
-function ItemDetailsTop({ item, updateItem }) {
+function ItemDetailsTop({ item, updateItem, deleteItem }) {
   const [popup, setPopup] = useState(false);
-  const navigate = useNavigate();
 
-  const updateVehicle = (item) => {
-    fetch(`http://localhost:3005/cars/${item.id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(item),
-    }).then(() => {
-      updateItem(item);
-      console.log("Item Updated Successfully");
-    });
-  };
-
-  const deleteVehicle = (id) => {
-    if (window.confirm(`Do you want to delete ${item.brand} ${item.model}?`)) {
-      fetch(`http://localhost:3005/cars/${id}`, {
-        method: "DELETE",
-      }).then(() => {
-        navigate("/cars", { replace: true });
-        console.log("Item Deleted!");
-      });
-    }
-  };
-
-  const addRental = (rental) => {
-    fetch("http://localhost:3005/rentals", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(rental),
-    }).then(() => {
-      console.log("Car Rented!");
-    });
-  };
+  const addRental = (rental) => {};
 
   useEffect(() => {
     document.body.style.overflow = popup ? "hidden" : "visible";
@@ -73,7 +41,7 @@ function ItemDetailsTop({ item, updateItem }) {
             <button className="edit-btn" onClick={() => setPopup(true)}>
               Edit
             </button>
-            <button className="del-btn" onClick={() => deleteVehicle(item.id)}>
+            <button className="del-btn" onClick={() => deleteItem()}>
               Delete
             </button>
             <button className="rent-btn" onClick={() => setPopup(true)}>
@@ -82,12 +50,7 @@ function ItemDetailsTop({ item, updateItem }) {
           </div>
         </div>
       </div>
-      <VehicleForm
-        trigger={popup}
-        setTrigger={setPopup}
-        data={item}
-        updateVehicle={updateVehicle}
-      />
+      <VehicleForm trigger={popup} setTrigger={setPopup} data={item} updateVehicle={updateItem} />
       {/* <RentForm trigger={popup} setTrigger={setPopup} data={item} addRental={addRental} /> */}
     </section>
   );

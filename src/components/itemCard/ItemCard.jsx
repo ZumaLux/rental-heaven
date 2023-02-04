@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import "./ItemCard.css";
 
 const ItemCard = ({ id, brand, model, fuel, year, seats, img, price, discount, discPrice }) => {
+  
   return (
-    <Link to={`/cars/${id}`}>
+    <Link className="item-card-link" to={`/cars/${id}`}>
       <div className="item-card">
         <div className="item-card__image">
           <img src={img} alt={brand} />

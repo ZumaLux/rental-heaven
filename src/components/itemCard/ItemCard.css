@@ -13,10 +13,11 @@
   scale: 1.02;
   transition: 0.2s;
 }
-a {
+.item-card-link {
   color: black;
   text-decoration: none;
   list-style: none;
+  height: fit-content;
 }
 
 .item-card__image {

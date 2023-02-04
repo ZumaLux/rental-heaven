@@ -6,22 +6,29 @@ import useSessionStorage from "../../hooks/useSessionStorage";
 import "./Grid.css";
 import SearchBar from "../../components/searchBar/SearchBar";
 import VehicleForm from "../../components/VehicleForm/VehhicleForm";
+import db from "../../firebase/firebase-config";
+import { collection, addDoc } from "firebase/firestore";
+import useFetchAPI from "../../hooks/useFetchAPI";
+import { useAppContext } from "../../context/context";
 
-const Grid = ({ data, setData }) => {
+const Grid = () => {
+  const { carList, setCarlist } = useAppContext();
+  //Initial fetch
+  const { data, isPending, error, setReload } = useFetchAPI("vehicles");
   //Sorting variables
   const sortOptions = ["brand model", "price brand", "year brand", "discount"];
   const [filterValue, setFilterValue] = useSessionStorage("car-Filter", "default");
   const [searchPhrase, setSearchPhrase] = useState("");
   //Pagination variables
   const [currentPage, setCurrentPage] = useSessionStorage("car-CurrentPage", 1);
-  const postsPerPage = 12;
+  const postsPerPage = 10;
   //Form popup
   const [popup, setPopup] = useState(false);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const searchData = searchItems(searchPhrase);
 
-  //Display data (searched + sorted)
+  // Display data (searched + sorted)
   const displayData = useMemo(() => {
     sortItems(filterValue);
     const indexOfLastPost = currentPage * postsPerPage;
@@ -33,7 +40,7 @@ const Grid = ({ data, setData }) => {
   function searchItems(word) {
     const excludedColumns = ["id", "img"];
     const _word = word.toLowerCase().trim();
-    return data.filter((item) => {
+    return carList.filter((item) => {
       return Object.keys(item).some((key) =>
         excludedColumns.includes(key) ? false : item[key].toString().toLowerCase().includes(_word)
       );
@@ -49,7 +56,7 @@ const Grid = ({ data, setData }) => {
     if (sortValue === "default") return;
     if (sortValue.split(" ")[0].includes("ascending")) {
       return [
-        data.sort(function (a, b) {
+        carList.sort(function (a, b) {
           return (
             cmp(b[sortValue.split(" ")[1]], a[sortValue.split(" ")[1]]) ||
             cmp(b[sortValue.split(" ")[2]], a[sortValue.split(" ")[2]])
@@ -58,7 +65,7 @@ const Grid = ({ data, setData }) => {
       ];
     } else if (sortValue.split(" ")[0].includes("descending")) {
       return [
-        data.sort(function (a, b) {
+        carList.sort(function (a, b) {
           return (
             cmp(a[sortValue.split(" ")[1]], b[sortValue.split(" ")[1]]) ||
             cmp(a[sortValue.split(" ")[2]], b[sortValue.split(" ")[2]])
@@ -68,30 +75,48 @@ const Grid = ({ data, setData }) => {
     }
   }
 
-  function addVehicle(car) {
-    fetch("http://localhost:3005/cars", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(car),
-    }).then(() => {
-      setData([...data, car]);
-      // setData([car].concat([...data])); //add at the beginning
-      console.log("Item Added Successfully");
-    });
+  async function addVehicle(car) {
+    const dataCollectionRef = collection(db, "vehicles");
+    await addDoc(dataCollectionRef, car).then(
+      console.log("Item Added Successfully!"),
+      setReload((prev) => !prev)
+    );
   }
 
   useEffect(() => {
-    document.body.style.overflow = popup ? "hidden" : "scroll";
+    document.body.style.overflowY = popup ? "hidden" : "scroll";
   }, [popup]);
 
+  //TEST
+  useEffect(() => {
+    console.log("data => ", data);
+    console.log("dataList => ", carList);
+  }, [carList, data]);
+
+  // const observer = useRef();
+  // const loadingSign = useCallback(
+  //   (node) => {
+  //     if (isPending) return;
+  //     if (observer.current) observer.current.disconnect();
+  //     observer.current = new IntersectionObserver((entries) => {
+  //       if (entries[0].isIntersecting && hasMore) {
+  //         getNextItems();
+  //         console.log("visible");
+  //       }
+  //     });
+  //     if (node) observer.current.observe(node);
+  //     console.log(node);
+  //   },
+  //   [isPending, hasMore]
+  // );
   return (
     <section className="grid-container">
-      <div className="grid-container__opt">
+      <div className="grid-container__nav">
         <div className="search-container">
           <SearchBar searchPhrase={(value) => setSearchPhrase(value)} />
         </div>
         <div className="add-btn-container">
-          <button onClick={()=>setPopup(true)}>Add</button>
+          <button onClick={() => setPopup(true)}>Add</button>
         </div>
         <div className="sort-container">
           <SortFilter2
@@ -101,18 +126,25 @@ const Grid = ({ data, setData }) => {
           />
         </div>
       </div>
+
+      {/* Loading */}
+      {isPending && <div>Loading...</div>}
+      {error && <div>{error}</div>}
+
       <div className="grid-container__content">
         {displayData &&
           displayData.map((item) => {
             return <ItemCard {...item} key={item.id} />;
           })}
       </div>
+
       <Pagination
         postsPerPage={postsPerPage}
         totalPosts={searchData.length}
         paginate={paginate}
         currentPage={currentPage}
       />
+
       <VehicleForm trigger={popup} setTrigger={setPopup} addVehicle={addVehicle} />
     </section>
   );

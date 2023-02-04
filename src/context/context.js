@@ -1,14 +1,14 @@
+import { useState } from "react";
 import { createContext, useContext } from "react";
 
-export const initialState = {
-    
-};
-
-const appContext = createContext(initialState);
+const appContext = createContext();
 
 function Context({ children }) {
+  const [carList, setCarlist] = useState([]);
+
   const value = {
-    ...state,
+    carList,
+    setCarlist,
   };
 
   return <appContext.Provider value={value}>{children}</appContext.Provider>;

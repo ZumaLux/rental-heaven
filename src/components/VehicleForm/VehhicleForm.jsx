@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./VehicleForm.css";
 
 const getYears = () => {
@@ -9,17 +9,6 @@ const getYears = () => {
   return years;
 };
 
-function randomValue(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
-}
-
-function getId(data) {
-  if (data) {
-    return data.id;
-  }
-  return new Date().getTime().toString() + randomValue(100, 999).toString();
-}
-
 const VehicleForm = ({ trigger, setTrigger, data, addVehicle, updateVehicle }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,12 +16,11 @@ const VehicleForm = ({ trigger, setTrigger, data, addVehicle, updateVehicle }) =
     let discount = parseInt(e.target.discount.value === "" ? 0 : e.target.discount.value);
 
     const car = {
-      id: getId(data),
       brand: e.target.brand.value,
       model: e.target.model.value,
       year: parseInt(e.target.year.value),
       fuel: e.target.fuel.value,
-      transmission: e.target.gearbox.value,
+      gearbox: e.target.gearbox.value,
       ac: e.target.ac.value,
       doors: parseInt(e.target.doors.value),
       seats: parseInt(e.target.seats.value),

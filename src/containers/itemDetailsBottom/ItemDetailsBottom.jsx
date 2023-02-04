@@ -21,7 +21,8 @@ const ItemDetailsBottom = ({ item }) => {
             key === "price" ||
             key === "discPrice"
           )
-            return;
+            return "";
+
           return (
             <div className="row" key={index}>
               <div className="row-title">
