@@ -6,7 +6,7 @@ import useSessionStorage from "../../hooks/useSessionStorage";
 import "./Grid.css";
 import SearchBar from "../../components/searchBar/SearchBar";
 import VehicleForm from "../../components/VehicleForm/VehhicleForm";
-import db from "../../firebase/firebase-config";
+import {db} from "../../firebase/firebase-config";
 import { collection, addDoc } from "firebase/firestore";
 import useFetchAPI from "../../hooks/useFetchAPI";
 import { useAppContext } from "../../context/context";

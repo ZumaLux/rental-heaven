@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ItemRow from "../../components/itemRow/ItemRow";
 import "./ListGrid.css";
-import db from "../../firebase/firebase-config";
+import {db} from "../../firebase/firebase-config";
 import { deleteDoc, doc, updateDoc } from "firebase/firestore";
 import CustomerForm from "../../components/customerForm/CustomerForm";
 

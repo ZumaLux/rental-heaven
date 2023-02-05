@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import ItemDetailsTop from "../../containers/itemDetailsTop/ItemDetailsTop";
 import ItemDetailsBottom from "../../containers/itemDetailsBottom/ItemDetailsBottom";
-import db from "../../firebase/firebase-config";
+import {db} from "../../firebase/firebase-config";
 import { doc, onSnapshot, updateDoc, deleteDoc } from "firebase/firestore";
 
 const CarDetails = () => {
