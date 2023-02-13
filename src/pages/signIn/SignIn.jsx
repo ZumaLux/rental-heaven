@@ -1,106 +1,134 @@
-import React, { useEffect, useState } from "react";
-import { auth } from "../../firebase/firebase-config";
+import React, { useState } from "react";
+import "./SignIn.css";
+import { useAppContext } from "../../context/context";
 import {
-  createUserWithEmailAndPassword,
-  onAuthStateChanged,
-  signInWithEmailAndPassword,
-  signOut,
-} from "firebase/auth";
+  registerUser,
+  createUserDetails,
+  loginUser,
+  signOutUser,
+} from "../../firebase/firebase-auth";
 
 const SignIn = () => {
-  const [registerEmail, setRegisterEmail] = useState("");
-  const [registerPassword, setRegisterPassword] = useState("");
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) setUser(currentUser);
-      else {
-        setUser(null);
-      }
-    });
-  }, []);
+  const [showRegister, setShowRegister] = useState(false);
+  const { signedUser } = useAppContext();
 
   //Regeister
   const register = async (e) => {
     e.preventDefault();
-    try {
-      const user = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword);
-      e.target.reset();
-      console.log(user);
-    } catch (err) {
-      console.log(err.message);
-    }
+    const customer = {
+      name: e.target.registerName.value,
+      surname: e.target.registerSurname.value,
+      email: e.target.registerEmail.value,
+      phone: e.target.registerPhone.value,
+    };
+    await registerUser(
+      signedUser,
+      e.target.registerEmail.value,
+      e.target.registerPassword.value
+    ).then((res) => {
+      if (res) createUserDetails("customers", customer);
+    });
+    e.target.reset();
   };
 
   //Login
   const login = async (e) => {
     e.preventDefault();
-    try {
-      const user = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
-      e.target.reset();
-      console.log(user);
-    } catch (err) {
-      console.log(err.message);
-    }
+    loginUser(signedUser, e.target.loginEmail.value, e.target.loginPassword.value);
+    e.target.reset();
   };
 
   //Logout
   const logout = async () => {
-    if (!user) return;
-    else {
-      await signOut(auth);
-      console.log("Signed Out!");
-      console.log(user);
-    }
+    signOutUser(signedUser);
   };
 
   return (
-    <div className="page-container">
-      REGISTER
-      <form onSubmit={register}>
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          defaultValue={""}
-          required
-          onChange={(event) => setRegisterEmail(event.target.value)}
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          defaultValue={""}
-          required
-          onChange={(event) => setRegisterPassword(event.target.value)}
-        />
-        <button type="submit">Register</button>
-      </form>
-      LOGIN
-      <form onSubmit={login}>
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          defaultValue={""}
-          required
-          onChange={(event) => setLoginEmail(event.target.value)}
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          defaultValue={""}
-          required
-          onChange={(event) => setLoginPassword(event.target.value)}
-        />
-        <button type="submit">Login</button>
-      </form>
-      <h1>Current User: {user?.email}</h1>
-      <button onClick={() => logout()}>Sign Out</button>
+    <div className="form-container">
+      <div className="left-part">
+        {showRegister ? (
+          <form className="form" onSubmit={register}>
+            <h2 className="">Register</h2>
+            <h4 className="">Create new account</h4>
+            <input
+              className="form-field"
+              type="text"
+              name="registerName"
+              placeholder="Name"
+              defaultValue={""}
+              required
+            />
+            <input
+              className="form-field"
+              type="text"
+              name="registerSurname"
+              placeholder="Surname"
+              defaultValue={""}
+              required
+            />
+            <input
+              className="form-field"
+              type="text"
+              name="registerPhone"
+              placeholder="Phone"
+              defaultValue={""}
+              required
+            />
+            <input
+              className="form-field"
+              type="email"
+              name="registerEmail"
+              placeholder="Email"
+              defaultValue={""}
+              required
+            />
+            <input
+              className="form-field"
+              type="password"
+              name="registerPassword"
+              placeholder="Password"
+              defaultValue={""}
+              required
+            />
+            <p className="option" onClick={() => setShowRegister(false)}>
+              Log in
+            </p>
+            <button className="" type="submit">
+              Register
+            </button>
+          </form>
+        ) : (
+          <form className="form" onSubmit={login}>
+            <h2 className="animation a1">LOG IN</h2>
+            <h4 className="animation a2">Log in to your account using email and password</h4>
+            <input
+              className="form-field animation a3"
+              type="email"
+              name="loginEmail"
+              placeholder="Email"
+              defaultValue={""}
+              required
+            />
+            <input
+              className="form-field animation a4"
+              type="password"
+              name="loginPassword"
+              placeholder="Password"
+              defaultValue={""}
+              required
+            />
+            <p className="option animation a5" onClick={() => setShowRegister(true)}>
+              Don't have an account?
+            </p>
+            <button className="animation a6" type="submit">
+              Login
+            </button>
+          </form>
+        )}
+        <h1>Current User: {signedUser?.email}</h1>
+        <button onClick={() => logout()}>Sign Out</button>
+      </div>
+      <div className="right-part"></div>
     </div>
   );
 };

@@ -1,46 +1,41 @@
-import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { collection_vehicles } from "../../constants";
 import ItemDetailsTop from "../../containers/itemDetailsTop/ItemDetailsTop";
 import ItemDetailsBottom from "../../containers/itemDetailsBottom/ItemDetailsBottom";
-import {db} from "../../firebase/firebase-config";
-import { doc, onSnapshot, updateDoc, deleteDoc } from "firebase/firestore";
+import { deleteitem, updateItem } from "../../firebase/firebase-crud";
+import useDocSnap from "../../hooks/useDocSnap";
 
 const CarDetails = () => {
   const { id } = useParams();
-  const [itemData, setItemData] = useState();
+  // const [itemData, setItemData] = useState();
   const navigate = useNavigate();
-  const collectionName = "vehicles";
+  const collectionName = collection_vehicles;
+  const { itemData, isPending, error } = useDocSnap(collectionName, id);
 
-  useEffect(() => {
-    const dataDocumentRef = doc(db, collectionName, id);
-    const unsubscribe = onSnapshot(dataDocumentRef, (snapshot) => {
-      setItemData({ ...snapshot.data(), id: snapshot.id });
-      console.log("FETCHED_DETAILS", { ...snapshot.data(), id: snapshot.id });
-    });
-    return unsubscribe;
-  }, [id]);
-
-  const updateItem = (car) => {
-    const itemDocRef = doc(db, collectionName, id);
-    updateDoc(itemDocRef, car);
-    console.log("Item Updated!");
+  const updateVehicle = (car) => {
+    updateItem(collectionName, car, id);
   };
 
-  const deleteItem = () => {
-    if (window.confirm(`Do you want to delete ${itemData.brand} ${itemData.model}?`)) {
-      const itemDocRef = doc(db, collectionName, id);
-      deleteDoc(itemDocRef);
-      navigate("/cars", { replace: true });
-      console.log("Item Deleted!");
-    }
+  const deleteVehicle = async () => {
+    await deleteitem(collectionName, itemData, id).then((confirm) => {
+      if (confirm) navigate("/cars", { replace: true });
+    });
   };
 
   return (
     <div className="page-container">
+      {isPending && <div>Loading...</div>}
+      {error && <div>{error}</div>}
       {itemData && (
-        <ItemDetailsTop item={itemData} updateItem={updateItem} deleteItem={deleteItem} />
+        <>
+          <ItemDetailsTop
+            item={itemData}
+            updateVehicle={updateVehicle}
+            deleteVehicle={deleteVehicle}
+          />
+          <ItemDetailsBottom item={itemData} />
+        </>
       )}
-      {itemData && <ItemDetailsBottom item={itemData} />}
     </div>
   );
 };

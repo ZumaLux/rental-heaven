@@ -4,7 +4,7 @@ import VehicleForm from "../../components/VehicleForm/VehhicleForm";
 import "./ItemDetailsTop.css";
 import RentForm from "../../components/rentForm/RentForm";
 
-function ItemDetailsTop({ item, updateItem, deleteItem }) {
+function ItemDetailsTop({ item, updateVehicle, deleteVehicle }) {
   const [popup, setPopup] = useState(false);
 
   const addRental = (rental) => {};
@@ -41,7 +41,7 @@ function ItemDetailsTop({ item, updateItem, deleteItem }) {
             <button className="edit-btn" onClick={() => setPopup(true)}>
               Edit
             </button>
-            <button className="del-btn" onClick={() => deleteItem()}>
+            <button className="del-btn" onClick={() => deleteVehicle()}>
               Delete
             </button>
             <button className="rent-btn" onClick={() => setPopup(true)}>
@@ -50,7 +50,7 @@ function ItemDetailsTop({ item, updateItem, deleteItem }) {
           </div>
         </div>
       </div>
-      <VehicleForm trigger={popup} setTrigger={setPopup} data={item} updateVehicle={updateItem} />
+      <VehicleForm trigger={popup} setTrigger={setPopup} data={item} updateVehicle={updateVehicle} />
       {/* <RentForm trigger={popup} setTrigger={setPopup} data={item} addRental={addRental} /> */}
     </section>
   );

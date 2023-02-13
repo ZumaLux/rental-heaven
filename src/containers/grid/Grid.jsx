@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect } from "react";
+import { collection_vehicles } from "../../constants";
 import ItemCard from "../../components/itemCard/ItemCard";
 import Pagination from "../../components/pagination/Pagination";
 import SortFilter2 from "../../components/sortFilter/SortFilter2";
@@ -6,15 +7,14 @@ import useSessionStorage from "../../hooks/useSessionStorage";
 import "./Grid.css";
 import SearchBar from "../../components/searchBar/SearchBar";
 import VehicleForm from "../../components/VehicleForm/VehhicleForm";
-import {db} from "../../firebase/firebase-config";
-import { collection, addDoc } from "firebase/firestore";
 import useFetchAPI from "../../hooks/useFetchAPI";
 import { useAppContext } from "../../context/context";
+import { addItem } from "../../firebase/firebase-crud";
 
 const Grid = () => {
   const { carList, setCarlist } = useAppContext();
   //Initial fetch
-  const { data, isPending, error, setReload } = useFetchAPI("vehicles");
+  const { data, isPending, error, setReload } = useFetchAPI(collection_vehicles);
   //Sorting variables
   const sortOptions = ["brand model", "price brand", "year brand", "discount"];
   const [filterValue, setFilterValue] = useSessionStorage("car-Filter", "default");
@@ -76,11 +76,9 @@ const Grid = () => {
   }
 
   async function addVehicle(car) {
-    const dataCollectionRef = collection(db, "vehicles");
-    await addDoc(dataCollectionRef, car).then(
-      console.log("Item Added Successfully!"),
-      setReload((prev) => !prev)
-    );
+    await addItem(collection_vehicles, car).then((res) => {
+      if (res) setReload((prev) => !prev);
+    });
   }
 
   useEffect(() => {
