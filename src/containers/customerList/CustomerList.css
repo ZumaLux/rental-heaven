@@ -1,0 +1,17 @@
+.customer-list {
+  /* width: 80%; */
+  width: fit-content;
+  margin: 0 auto;
+  font-family: var(--font-family);
+}
+
+.customer-list__titles {
+  display: flex;
+}
+
+.customer-list__titles div {
+  width: 15rem;
+  padding: 0 1.5rem;
+  font-weight: bold;
+  text-decoration: underline;
+}

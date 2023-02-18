@@ -1,0 +1,19 @@
+.car-sort {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.car-sort select {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  padding: 0 0.5rem;
+  font-family: var(--font-family);
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+}

@@ -1,4 +1,4 @@
-.form-container {
+.sign-in-form {
   display: flex;
   height: 100vh;
 }
@@ -49,7 +49,7 @@
   text-align: right;
   text-decoration: underline;
   cursor: pointer;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
 }
 
 .form > p > a {

@@ -1,0 +1,81 @@
+.home-header {
+  width: 100%;
+  height: 70vh;
+  padding: 0 3rem;
+  position: relative;
+  border-radius: 15px;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+    url("../../assets/relaxCar.jpg");
+  background-position: center bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: var(--font-family);
+}
+
+.home-header__left-side {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+.home-header h1 {
+  font-size: 35px;
+}
+
+.home-header button {
+  margin-top: 50px;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  color: white;
+  border-radius: 10px;
+  border: 1px solid white;
+  background-color: blueviolet;
+}
+
+.home-header button:hover {
+  scale: 0.95;
+  box-shadow: 3px 3px 3px black;
+}
+
+.home-header__author-name {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  color: wheat;
+  font-style: italic;
+  font-size: 0.8rem;
+  font-weight: lighter;
+}
+
+@media screen and (max-width: 820px) {
+  .home-header {
+    height: 100vh;
+    border-radius: 0;
+    background-position: left;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .home-header {
+    background-position: center ;
+  }
+
+  .home-header h1 {
+    font-size: 28px;
+  }
+  .home-header button {
+    padding: 0.5rem 1rem;
+  }
+  .home-header__author-name {
+    font-size: 0.6rem;
+  }
+  .home-header button {
+    font-size: 0.8rem;
+  }
+}

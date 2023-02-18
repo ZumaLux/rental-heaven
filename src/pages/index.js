@@ -4,5 +4,4 @@ export { default as Contacts } from "./contacts/Contacts";
 export { default as Customers } from "./customers/Customers";
 export { default as Rentals } from "./rentals/Rentals";
 export { default as SignIn } from "./signIn/SignIn";
-export { default as SignUp } from "./signUp/SignUp";
 export { default as CarDetails } from "./carDetails/CarDetails";

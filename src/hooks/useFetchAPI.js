@@ -1,13 +1,13 @@
-import { useState, useEffect, useMemo } from "react";
-import {db} from "../firebase/firebase-config";
-import { useAppContext } from "../context/context";
+import { useState, useEffect } from "react";
+import { db } from "../firebase/firebase-config";
+import { useCarContext } from "../context/carContext";
 import { collection, getDocs } from "firebase/firestore";
 
 const useFetchAPI = (dbColl) => {
   const [data, setData] = useState([]);
   const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState(null);
-  const { setCarlist } = useAppContext();
+  const { setCarlist } = useCarContext();
   const [reload, setReload] = useState(false);
 
   const ref = collection(db, dbColl);

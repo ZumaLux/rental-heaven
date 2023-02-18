@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import "./SignIn.css";
-import { useAppContext } from "../../context/context";
+import "../index.css";
+import { useAuthContext } from "../../context/authContext";
 import {
   registerUser,
   createUserDetails,
   loginUser,
   signOutUser,
 } from "../../firebase/firebase-auth";
+import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
   const [showRegister, setShowRegister] = useState(false);
-  const { signedUser } = useAppContext();
+  const { signedUser } = useAuthContext();
+  const navigate = useNavigate();
 
   //Regeister
   const register = async (e) => {
@@ -20,13 +23,17 @@ const SignIn = () => {
       surname: e.target.registerSurname.value,
       email: e.target.registerEmail.value,
       phone: e.target.registerPhone.value,
+      accessLevel: 0,
     };
     await registerUser(
       signedUser,
       e.target.registerEmail.value,
       e.target.registerPassword.value
     ).then((res) => {
-      if (res) createUserDetails("customers", customer);
+      if (res) {
+        createUserDetails("customers", customer, res.uid);
+        navigate("/");
+      }
     });
     e.target.reset();
   };
@@ -34,17 +41,21 @@ const SignIn = () => {
   //Login
   const login = async (e) => {
     e.preventDefault();
-    loginUser(signedUser, e.target.loginEmail.value, e.target.loginPassword.value);
+    await loginUser(signedUser, e.target.loginEmail.value, e.target.loginPassword.value).then(
+      (res) => {
+        if (res) navigate("/");
+      }
+    );
     e.target.reset();
   };
 
   //Logout
   const logout = async () => {
-    signOutUser(signedUser);
+    signOutUser();
   };
 
   return (
-    <div className="form-container">
+    <div className="sign-in-form">
       <div className="left-part">
         {showRegister ? (
           <form className="form" onSubmit={register}>

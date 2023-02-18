@@ -4,12 +4,19 @@ import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { FaBars as BurgirIcon } from "react-icons/fa";
 import { CgClose as BurgirClose } from "react-icons/cg";
+import { useAuthContext } from "../../context/authContext";
+import { signOutUser } from "../../firebase/firebase-auth";
 
 const Navbar = () => {
   const [navActive, setNavActive] = useState(false);
+  const { signedUser, isAdminAuth } = useAuthContext();
+
+  const [showSubNav, setShowSubnav] = useState(false);
+  const toggleSubNav = (isActive) => {
+    setShowSubnav(isActive);
+  };
 
   const toggleMenu = () => {
-    
     setNavActive((prevState) => !prevState);
   };
 
@@ -20,25 +27,38 @@ const Navbar = () => {
           <img src={logo} alt="" />
         </div>
         <div className={navActive ? "nav-links " : "nav-links nav-hidden "}>
-          <CustomLink to="/" onClick={()=>setNavActive(false)}>
+          <CustomLink to="/" onClick={() => setNavActive(false)}>
             Home
           </CustomLink>
-          <CustomLink to="/cars" onClick={()=>setNavActive(false)}>
+          <CustomLink to="/cars" onClick={() => setNavActive(false)}>
             Cars
           </CustomLink>
-          <CustomLink to="/contacts" onClick={()=>setNavActive(false)}>
+          <CustomLink to="/contacts" onClick={() => setNavActive(false)}>
             Contact
           </CustomLink>
-          <CustomLink to="/customers" onClick={()=>setNavActive(false)}>
-            Customers
-          </CustomLink>
-          <CustomLink to="/rentals" onClick={()=>setNavActive(false)}>
-            Rentals
-          </CustomLink>
-
-          <CustomLink to="/signIn" onClick={()=>setNavActive(false)}>
-            Sign In
-          </CustomLink>
+          {isAdminAuth() && (
+            <>
+              <CustomLink to="/customers" onClick={() => setNavActive(false)}>
+                Customers
+              </CustomLink>
+              <CustomLink to="/rentals" onClick={() => setNavActive(false)}>
+                Rentals
+              </CustomLink>
+            </>
+          )}
+          {!signedUser ? (
+            <CustomLink to="/signIn" onClick={() => setNavActive(false)}>
+              Sign In
+            </CustomLink>
+          ) : (
+            <CustomLink
+              showSubNav={showSubNav}
+              onMouseEnter={() => toggleSubNav(true)}
+              onMouseLeave={() => toggleSubNav(false)}
+            >
+              -- {signedUser.name} {signedUser.surname} --
+            </CustomLink>
+          )}
           {/* <CustomLink to="/signUp">SignUp</CustomLink> */}
         </div>
         <div className="nav-burgir" onClick={toggleMenu}>
@@ -49,14 +69,26 @@ const Navbar = () => {
   );
 };
 
-function CustomLink({ to, children, ...props }) {
+function CustomLink({ to, children, showSubNav, ...props }) {
   const resolvedPath = useResolvedPath(to);
   const isActive = useMatch({ path: resolvedPath.pathname, end: true });
   //end:true makes sure the entire URL matches
+  const { isMainAdminAuth } = useAuthContext();
 
   return (
     <Link to={to} {...props}>
-      <li className={isActive ? "active" : ""}>{children}</li>
+      {to ? (
+        <li className={isActive ? "active" : ""}>{children}</li>
+      ) : (
+        <>
+          <li className="logged-profile">
+            {children}
+            <ul className={`sub-nav-profile ${!showSubNav && "hidden"}`}>
+              <li onClick={() => signOutUser()}>Sign Out</li>
+            </ul>
+          </li>
+        </>
+      )}
     </Link>
   );
 }

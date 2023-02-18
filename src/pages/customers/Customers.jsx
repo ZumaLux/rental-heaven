@@ -1,6 +1,7 @@
+import "../index.css";
 import React, { useEffect } from "react";
-import { collection_customers } from "../../constants";
-import ListGrid from "../../containers/listGrid/ListGrid";
+import { collection_customers } from "../../utils/constants";
+import CustomerList from "../../containers/customerList/CustomerList";
 import { auth } from "../../firebase/firebase-config";
 import useFetchAPI from "../../hooks/useFetchAPI";
 
@@ -13,8 +14,8 @@ const Customers = () => {
 
   return (
     <div className="page-container">
-      <ListGrid
-        data={data}
+      <CustomerList
+        customerData={data}
         isPending={isPending}
         error={error}
         collectionName={collection_customers}

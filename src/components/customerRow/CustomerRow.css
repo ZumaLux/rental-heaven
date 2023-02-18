@@ -1,0 +1,33 @@
+.customer-row {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  background: rgb(185, 185, 185);
+  margin: 0.5rem 0;
+}
+
+.customer-row div {
+  width: 15rem;
+  padding: 1rem 1.5rem;
+}
+
+.customer-row .opt {
+  text-align: center;
+}
+
+.customer-row .opt .admin-red {
+  color: red;
+}
+.customer-row .opt .admin-normal {
+  color: white;
+}
+.customer-row .opt svg {
+  margin: 0 1rem;
+  scale: 1.5;
+}
+.customer-row .opt .edit {
+  color: orange;
+}
+.customer-row .opt .delete {
+  color: red;
+}

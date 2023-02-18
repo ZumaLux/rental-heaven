@@ -1,5 +1,6 @@
 import React from "react";
 import "./Contacts.css";
+import "../index.css";
 import { FaFacebookSquare as FbIcon } from "react-icons/fa";
 import { RiInstagramFill as IgIcon } from "react-icons/ri";
 import { FaTwitterSquare as TwIcon } from "react-icons/fa";

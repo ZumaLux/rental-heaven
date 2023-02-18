@@ -1,10 +1,10 @@
-import React, { useEffect, useMemo } from "react";
-import Grid from "../../containers/grid/Grid";
+import "../index.css";
+import CarGrid from "../../containers/carGrid/CarGrid";
 
 const Cars = () => {
   return (
     <div className="page-container">
-      <Grid />
+      <CarGrid />
     </div>
   );
 };

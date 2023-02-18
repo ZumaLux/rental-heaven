@@ -1,15 +1,15 @@
 import React from "react";
-import "./Home.css";
-import LandingHeader from "../../components/landingHeader/LandingHeader";
-import LandingFeatures from "../../containers/landingFeatures/LandingFeatures";
-import InfoOne from "../../components/infoOne/InfoOne";
+import "../index.css";
+import HomeHeader from "../../components/homeHeader/HomeHeader";
+import HomeFeatures from "../../containers/homeFeatures/HomeFeatures";
+import HomeDarkLovers from "../../containers/homeDarkLovers/HomeDarkLovers";
 
 const Home = () => {
   return (
     <div className="page-container">
-      <LandingHeader />
-      <LandingFeatures />
-      <InfoOne />
+      <HomeHeader />
+      <HomeFeatures />
+      <HomeDarkLovers />
     </div>
   );
 };

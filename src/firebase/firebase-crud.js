@@ -3,6 +3,7 @@ import { collection, addDoc, doc, updateDoc, deleteDoc } from "firebase/firestor
 
 //ADD ITEM
 export async function addItem(path, item) {
+  console.log("test", path, item);
   const dataCollectionRef = collection(db, path);
   return await addDoc(dataCollectionRef, item).then((res) => {
     if (res) {
@@ -16,18 +17,18 @@ export async function addItem(path, item) {
 }
 
 //UPDATE ITEM
-export async function updateItem(path, item, id) {
+export async function updateItem(path, newItem, id) {
   const itemDocRef = doc(db, path, id);
-  return await updateDoc(itemDocRef, item).then((res) => {
+  return await updateDoc(itemDocRef, newItem).then((res) => {
     console.log("Item Updated Successfully!");
   });
 }
 
 //DELETE ITEM
-export async function deleteitem(path, item, id) {
+export async function deleteItem(path, item) {
   if (window.confirm(`Do you want to delete ${item.brand} ${item.model}?`)) {
-    const itemDocRef = doc(db, path, id);
-    deleteDoc(itemDocRef);
+    const itemDocRef = doc(db, path, item.id);
+    // deleteDoc(itemDocRef);
     console.log("Item Deleted!");
     return true;
   } else {

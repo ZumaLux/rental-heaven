@@ -1,7 +1,7 @@
 import React from "react";
 import "./CustomerForm.css";
 
-const CustomerForm = ({ trigger, setTrigger, data, updateItem }) => {
+const CustomerForm = ({ trigger, setTrigger, customerData, updateCustomer }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -11,7 +11,7 @@ const CustomerForm = ({ trigger, setTrigger, data, updateItem }) => {
       email: e.target.email.value,
       phone: e.target.phone.value,
     };
-    updateItem(data.id, customer);
+    updateCustomer(customerData.id, customer);
     e.target.reset();
     setTrigger(false);
   };
@@ -39,7 +39,7 @@ const CustomerForm = ({ trigger, setTrigger, data, updateItem }) => {
                 type="text"
                 name="name"
                 placeholder="Name"
-                defaultValue={data ? data.name : ""}
+                defaultValue={customerData ? customerData.name : ""}
                 required
               />
             </div>
@@ -50,7 +50,7 @@ const CustomerForm = ({ trigger, setTrigger, data, updateItem }) => {
                 type="text"
                 name="surname"
                 placeholder="Surname"
-                defaultValue={data ? data.surname : ""}
+                defaultValue={customerData ? customerData.surname : ""}
                 required
               />
             </div>
@@ -61,7 +61,7 @@ const CustomerForm = ({ trigger, setTrigger, data, updateItem }) => {
                 type="email"
                 name="email"
                 placeholder="E-mail"
-                defaultValue={data ? data.email : ""}
+                defaultValue={customerData ? customerData.email : ""}
                 required
               />
             </div>
@@ -72,7 +72,7 @@ const CustomerForm = ({ trigger, setTrigger, data, updateItem }) => {
                 type="number"
                 name="phone"
                 placeholder="Phone"
-                defaultValue={data ? data.phone : ""}
+                defaultValue={customerData ? customerData.phone : ""}
                 required
               />
             </div>

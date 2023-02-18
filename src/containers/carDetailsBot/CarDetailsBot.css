@@ -1,0 +1,43 @@
+.car-details-bottom {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 2rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  background: grey;
+}
+
+.description-title {
+  margin: 1rem 0;
+}
+
+.car-details-bottom__description {
+  margin-bottom: 1rem;
+}
+
+.car-details-bottom__info div {
+  display: flex;
+  padding: 5px;
+  border-radius: 10px;
+}
+.car-details-bottom__info .row-title {
+  width: 7rem;
+}
+
+.car-details-bottom__info .row-info {
+  width: auto;
+}
+
+.car-details-bottom__info .row:nth-of-type(odd) {
+  background: rgb(190, 190, 190);
+}
+
+@media screen and (max-width: 820px) {
+  .car-details-bottom__description {
+    text-align: justify;
+  }
+  .car-details-bottom {
+    width: 100%;
+    border-radius: 0;
+  }
+}
