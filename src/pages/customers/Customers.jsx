@@ -7,10 +7,6 @@ import useFetchAPI from "../../hooks/useFetchAPI";
 
 const Customers = () => {
   const { data, isPending, error, setReload } = useFetchAPI(collection_customers);
-  useEffect(() => {
-    console.log(data);
-    console.log(auth.currentUser);
-  }, [data]);
 
   return (
     <div className="page-container">

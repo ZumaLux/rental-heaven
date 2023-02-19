@@ -11,20 +11,20 @@ const appContext = createContext();
 
 function AuthContext({ children }) {
   const [signedUser, setSignedUser] = useState(null);
+  const [isPending, setIsPending] = useState(true);
 
   useEffect(() => {
     onAuthStateChanged(auth, async (currentUser) => {
+      setIsPending(true);
       if (currentUser) {
-        console.log("current user => ", currentUser.uid);
         const docRef = doc(db, collection_customers, currentUser.uid);
         const docSnap = await getDoc(docRef);
-        console.log("user =>", docSnap.data());
 
         setSignedUser(docSnap.data());
       } else {
         setSignedUser(null);
-        console.log("set null");
       }
+      setIsPending(false);
     });
   }, []);
 
@@ -44,6 +44,7 @@ function AuthContext({ children }) {
     isMainAdminAuth,
     isAdminAuth,
     isUserAuth,
+    isPending,
   };
 
   return <appContext.Provider value={value}>{children}</appContext.Provider>;

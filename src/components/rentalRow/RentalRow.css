@@ -1,0 +1,13 @@
+.rental-row {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  background: rgb(185, 185, 185);
+  margin: 0.5rem 0;
+}
+
+.rental-row .field {
+  width: 15rem;
+  padding: 1rem 1.5rem;
+
+}
