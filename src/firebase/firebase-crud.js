@@ -28,7 +28,7 @@ export async function updateItem(path, newItem, id) {
 export async function deleteItem(path, item) {
   if (window.confirm(`Do you want to delete ${item.brand} ${item.model}?`)) {
     const itemDocRef = doc(db, path, item.id);
-    // deleteDoc(itemDocRef);
+    deleteDoc(itemDocRef);
     console.log("Item Deleted!");
     return true;
   } else {

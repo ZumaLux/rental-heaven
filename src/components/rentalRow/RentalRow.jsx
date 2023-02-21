@@ -1,28 +1,31 @@
 import React, { useEffect } from "react";
 import "./RentalRow.css";
-import useDocSnap from "../../hooks/useDocSnap";
-import { collection_customers, collection_vehicles } from "../../utils/constants";
 
-const RentalRow = ({ customerId, vehicleId, dateFrom, dateTo, price }) => {
-  const { itemData: customerData } = useDocSnap(collection_customers, customerId);
-  const { itemData: vehicleData } = useDocSnap(collection_vehicles, vehicleId);
+const RentalRow = ({
+  customerId,
+  vehicleId,
+  customerName,
+  vehicleName,
+  dateFrom,
+  dateTo,
+  price,
+}) => {
+  //customerId/vehicleId can be used to get more info on click
 
   return (
     <div className="rental-row">
-      <div className="field">
-        <span>{customerData?.name} </span>
-        <span>{customerData?.surname}</span>
+      <div className="field customerName">
+        <span>{customerName && customerName} </span>
       </div>
-      <div className="field">
-        <span>{vehicleData?.brand} </span>
-        <span>{vehicleData?.model}</span>
+      <div className="field vehicleName">
+        <span>{vehicleName && vehicleName} </span>
       </div>
-      <div className="field">
-        <span>{dateFrom && dateFrom} - </span>
+      <div className="field date">
+        <span>{dateFrom && dateFrom} </span> <br />
         <span>{dateTo && dateTo}</span>
       </div>
-      <div className="field">
-        <span>$ {price && price}</span>
+      <div className="field price">
+        <span>{price && price} $</span>
       </div>
     </div>
   );

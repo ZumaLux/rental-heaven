@@ -22,7 +22,9 @@ const RentForm = ({ trigger, setTrigger, carData, addRental, signedUser }) => {
     e.preventDefault();
     const rental = {
       customerId: auth.currentUser.uid,
+      customerName: signedUser.name + " " + signedUser.surname,
       vehicleId: carData.id,
+      vehicleName: carData.brand + " " + carData.model,
       dateFrom: e.target.dateFrom.value,
       dateTo: e.target.dateTo.value,
       price: parseFloat(getTotalPrice()),

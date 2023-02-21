@@ -4,17 +4,29 @@
   flex-wrap: wrap;
   background: rgb(185, 185, 185);
   margin: 0.5rem 0;
+  border-radius: 1rem;
 }
 
-.customer-row div {
+.customer-row .field {
   width: 15rem;
   padding: 1rem 1.5rem;
+}
+.customer-row .customer {
+  width: 12rem;
+}
+.customer-row .email {
+  width: 15rem;
+}
+.customer-row .phone {
+  width: 10rem;
+}
+.customer-row .opt {
+  width: 9rem;
 }
 
 .customer-row .opt {
   text-align: center;
 }
-
 .customer-row .opt .admin-red {
   color: red;
 }
@@ -28,6 +40,42 @@
 .customer-row .opt .edit {
   color: orange;
 }
-.customer-row .opt .delete {
-  color: red;
+
+@media screen and (max-width: 820px) {
+  .customer-row {
+    font-size: 0.9rem;
+  }
+  .customer-row .field {
+    padding: 0.8rem 1rem;
+  }
+  .customer-row .customer {
+    width: 10rem;
+  }
+  .customer-row .email {
+    width: 12rem;
+  }
+  .customer-row .phone {
+    width: 8rem;
+  }  
+}
+
+@media screen and (max-width: 630px) {
+  .customer-row{
+    justify-content: end;
+  }
+  .customer-row .field {
+    width: 33%;
+  }
+}
+@media screen and (max-width: 300px) {
+  .customer-row{
+    font-size: .6rem;
+    justify-content: start;
+  }
+  .customer-row .field {
+    width: 50%;
+  }
+  .customer-row .opt {
+    margin-left: -1.7rem;
+  }
 }

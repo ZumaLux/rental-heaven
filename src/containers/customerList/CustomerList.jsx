@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import CustomerRow from "../../components/customerRow/CustomerRow";
 import "./CustomerList.css";
 import CustomerForm from "../../components/customerForm/CustomerForm";
-import { updateItem} from "../../firebase/firebase-crud";
+import { updateItem } from "../../firebase/firebase-crud";
 import { setAdminRole } from "../../firebase/firebase-access-level";
 
 const CustomerList = ({ customerData, isPending, error, collectionName, setReload }) => {

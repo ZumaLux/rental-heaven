@@ -4,10 +4,49 @@
   flex-wrap: wrap;
   background: rgb(185, 185, 185);
   margin: 0.5rem 0;
+  cursor: pointer;
+  border-radius: 1rem;
 }
 
 .rental-row .field {
-  width: 15rem;
   padding: 1rem 1.5rem;
+}
+.rental-row .customerName {
+  width: 12rem;
+}
+.rental-row .vehicleName {
+  width: 12rem;
+}
+.rental-row .date {
+  width: 10rem;
+}
+.rental-row .price {
+  width: 7rem;
+}
 
+@media screen and (max-width: 820px) {
+  .rental-row {
+    font-size: 0.9rem;
+  }
+  .rental-row .field {
+    padding: 0.8rem 1rem;
+  }
+  .rental-row .customerName {
+    width: 10rem;
+  }
+  .rental-row .vehicleName {
+    width: 10rem;
+  }
+  .rental-row .date {
+    width: 8rem;
+  }
+  .rental-row .price {
+    width: 5rem;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .rental-row .field {
+    width: 50%;
+  }
 }

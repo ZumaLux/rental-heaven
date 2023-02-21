@@ -8,7 +8,7 @@ import "./CarGrid.css";
 import SearchBar from "../../components/searchBar/SearchBar";
 import CarForm from "../../components/carForm/CarForm";
 import useFetchAPI from "../../hooks/useFetchAPI";
-import { useCarContext } from "../../context/carContext";
+// import { useCarContext } from "../../context/carContext";
 import { addItem } from "../../firebase/firebase-crud";
 import { useAuthContext } from "../../context/authContext";
 
@@ -16,7 +16,7 @@ const CarGrid = () => {
   //Auth Context
   const { isAdminAuth } = useAuthContext();
   //Car Context
-  const { carList } = useCarContext();
+  // const { carList, setCarList } = useCarContext();
   //Initial fetch
   const { data, isPending, error, setReload } = useFetchAPI(collection_vehicles);
   //Sorting variables
@@ -44,7 +44,7 @@ const CarGrid = () => {
   function searchItems(word) {
     const excludedColumns = ["id", "img"];
     const _word = word.toLowerCase().trim();
-    return carList.filter((item) => {
+    return data.filter((item) => {
       return Object.keys(item).some((key) =>
         excludedColumns.includes(key) ? false : item[key].toString().toLowerCase().includes(_word)
       );
@@ -60,7 +60,7 @@ const CarGrid = () => {
     if (sortValue === "default") return;
     if (sortValue.split(" ")[0].includes("ascending")) {
       return [
-        carList.sort(function (a, b) {
+        data.sort(function (a, b) {
           return (
             cmp(b[sortValue.split(" ")[1]], a[sortValue.split(" ")[1]]) ||
             cmp(b[sortValue.split(" ")[2]], a[sortValue.split(" ")[2]])
@@ -69,7 +69,7 @@ const CarGrid = () => {
       ];
     } else if (sortValue.split(" ")[0].includes("descending")) {
       return [
-        carList.sort(function (a, b) {
+        data.sort(function (a, b) {
           return (
             cmp(a[sortValue.split(" ")[1]], b[sortValue.split(" ")[1]]) ||
             cmp(a[sortValue.split(" ")[2]], b[sortValue.split(" ")[2]])
@@ -82,6 +82,7 @@ const CarGrid = () => {
   async function addVehicle(car) {
     await addItem(collection_vehicles, car).then((res) => {
       if (res) setReload((prev) => !prev);
+      // setCarList([])
     });
   }
 
@@ -92,8 +93,8 @@ const CarGrid = () => {
   //TEST
   useEffect(() => {
     console.log("data => ", data);
-    console.log("dataList => ", carList);
-  }, [carList, data]);
+    // console.log("dataList => ", carList);
+  }, [data]);
 
   // const observer = useRef();
   // const loadingSign = useCallback(

@@ -2,12 +2,7 @@ import React, { useState } from "react";
 import "./SignIn.css";
 import "../index.css";
 import { useAuthContext } from "../../context/authContext";
-import {
-  registerUser,
-  createUserDetails,
-  loginUser,
-  signOutUser,
-} from "../../firebase/firebase-auth";
+import { registerUser, createUserDetails, loginUser } from "../../firebase/firebase-auth";
 import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
@@ -47,11 +42,6 @@ const SignIn = () => {
       }
     );
     e.target.reset();
-  };
-
-  //Logout
-  const logout = async () => {
-    signOutUser();
   };
 
   return (
@@ -136,8 +126,6 @@ const SignIn = () => {
             </button>
           </form>
         )}
-        <h1>Current User: {signedUser?.email}</h1>
-        <button onClick={() => logout()}>Sign Out</button>
       </div>
       <div className="right-part"></div>
     </div>

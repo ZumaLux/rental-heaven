@@ -1,18 +1,18 @@
-import { useState } from "react";
-import { createContext, useContext } from "react";
+// import { useState } from "react";
+// import { createContext, useContext } from "react";
 
-const appContext = createContext();
+// const appContext = createContext();
 
-function CarContext({ children }) {
-  const [carList, setCarlist] = useState([]);
+// function CarContext({ children }) {
+//   const [carList, setCarList] = useState([]);
 
-  const value = {
-    carList,
-    setCarlist,
-  };
+//   const value = {
+//     carList,
+//     setCarList,
+//   };
 
-  return <appContext.Provider value={value}>{children}</appContext.Provider>;
-}
+//   return <appContext.Provider value={value}>{children}</appContext.Provider>;
+// }
 
-export const useCarContext = () => useContext(appContext);
-export default CarContext;
+// export const useCarContext = () => useContext(appContext);
+// export default CarContext;
