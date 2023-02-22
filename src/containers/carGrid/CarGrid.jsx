@@ -8,15 +8,13 @@ import "./CarGrid.css";
 import SearchBar from "../../components/searchBar/SearchBar";
 import CarForm from "../../components/carForm/CarForm";
 import useFetchAPI from "../../hooks/useFetchAPI";
-// import { useCarContext } from "../../context/carContext";
 import { addItem } from "../../firebase/firebase-crud";
 import { useAuthContext } from "../../context/authContext";
+import { sortItems, searchItems } from "../../utils/sortAndFilter";
 
 const CarGrid = () => {
   //Auth Context
   const { isAdminAuth } = useAuthContext();
-  //Car Context
-  // const { carList, setCarList } = useCarContext();
   //Initial fetch
   const { data, isPending, error, setReload } = useFetchAPI(collection_vehicles);
   //Sorting variables
@@ -30,59 +28,20 @@ const CarGrid = () => {
   const [popup, setPopup] = useState(false);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  const searchData = searchItems(searchPhrase);
+  const searchData = searchItems(data, searchPhrase);
 
   // Display data (searched + sorted)
   const displayData = useMemo(() => {
-    sortItems(filterValue);
+    sortItems(data, filterValue);
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
     return searchData.reverse().slice(indexOfFirstPost, indexOfLastPost);
   }, [filterValue, currentPage, searchData]);
 
-  //Searching data
-  function searchItems(word) {
-    const excludedColumns = ["id", "img"];
-    const _word = word.toLowerCase().trim();
-    return data.filter((item) => {
-      return Object.keys(item).some((key) =>
-        excludedColumns.includes(key) ? false : item[key].toString().toLowerCase().includes(_word)
-      );
-    });
-  }
-
-  //Sorting data
-  function cmp(a, b) {
-    if (a > b) return 1;
-    if (a < b) return -1;
-  }
-  function sortItems(sortValue) {
-    if (sortValue === "default") return;
-    if (sortValue.split(" ")[0].includes("ascending")) {
-      return [
-        data.sort(function (a, b) {
-          return (
-            cmp(b[sortValue.split(" ")[1]], a[sortValue.split(" ")[1]]) ||
-            cmp(b[sortValue.split(" ")[2]], a[sortValue.split(" ")[2]])
-          );
-        }),
-      ];
-    } else if (sortValue.split(" ")[0].includes("descending")) {
-      return [
-        data.sort(function (a, b) {
-          return (
-            cmp(a[sortValue.split(" ")[1]], b[sortValue.split(" ")[1]]) ||
-            cmp(a[sortValue.split(" ")[2]], b[sortValue.split(" ")[2]])
-          );
-        }),
-      ];
-    }
-  }
-
+  //Add vehicle
   async function addVehicle(car) {
     await addItem(collection_vehicles, car).then((res) => {
       if (res) setReload((prev) => !prev);
-      // setCarList([])
     });
   }
 
@@ -93,25 +52,8 @@ const CarGrid = () => {
   //TEST
   useEffect(() => {
     console.log("data => ", data);
-    // console.log("dataList => ", carList);
   }, [data]);
 
-  // const observer = useRef();
-  // const loadingSign = useCallback(
-  //   (node) => {
-  //     if (isPending) return;
-  //     if (observer.current) observer.current.disconnect();
-  //     observer.current = new IntersectionObserver((entries) => {
-  //       if (entries[0].isIntersecting && hasMore) {
-  //         getNextItems();
-  //         console.log("visible");
-  //       }
-  //     });
-  //     if (node) observer.current.observe(node);
-  //     console.log(node);
-  //   },
-  //   [isPending, hasMore]
-  // );
   return (
     <section className="car-grid">
       <div className="car-grid__nav">
@@ -156,11 +98,3 @@ const CarGrid = () => {
 };
 
 export default CarGrid;
-
-//  return data.filter((item) => {
-//  for (const [key, value] of Object.entries(item)) {
-//    if (value.toString().toLowerCase().includes(word.toLowerCase())) {
-//      return item;
-//      }
-//    }
-//  });
