@@ -3,7 +3,6 @@
   height: 70vh;
   padding: 0 3rem;
   position: relative;
-  border-radius: 15px;
   background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
     url("../../assets/relaxCar.jpg");
   background-position: center bottom;
@@ -21,7 +20,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  color: white;
+  color: var(--dirty-white);
 }
 
 .home-header h1 {
@@ -32,10 +31,11 @@
   margin-top: 50px;
   padding: 1rem 2rem;
   cursor: pointer;
-  color: white;
+  color: var(--dirty-white);
+  font-weight: bold;
   border-radius: 10px;
-  border: 1px solid white;
-  background-color: blueviolet;
+  border: 1px solid var(--dirty-white);
+  background-color: var(--red);
 }
 
 .home-header button:hover {
@@ -47,7 +47,7 @@
   position: absolute;
   bottom: 5px;
   right: 10px;
-  color: wheat;
+  color: var(--orange);
   font-style: italic;
   font-size: 0.8rem;
   font-weight: lighter;
@@ -63,7 +63,7 @@
 
 @media screen and (max-width: 480px) {
   .home-header {
-    background-position: center ;
+    background-position: center;
   }
 
   .home-header h1 {

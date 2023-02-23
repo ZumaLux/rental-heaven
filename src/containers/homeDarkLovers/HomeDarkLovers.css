@@ -10,7 +10,7 @@
 .home-dark-lovers__image-container {
   width: 80%;
   height: 100%;
-  border: 1px solid white;
+  border: 1px solid var(--dirty-white);
   position: relative;
 }
 
@@ -28,7 +28,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: white;
+  color: var(--dirty-white);
   /* font-family: var(--font-family); */
 }
 
@@ -47,10 +47,10 @@
   margin-top: 50px;
   padding: 1rem 2rem;
   cursor: pointer;
-  color: white;
+  color: black;
   border-radius: 10px;
-  border: 1px solid white;
-  background-color: blueviolet;
+  border: 1px solid var(--dirty-white);
+  background-color: var(--red);
 }
 
 .home-dark-lovers button:hover {
@@ -62,7 +62,7 @@
   position: absolute;
   bottom: 5px;
   right: 10px;
-  color: wheat;
+  color: var(--orange);
   font-style: italic;
   font-size: 0.8rem;
   font-weight: lighter;

@@ -1,10 +1,10 @@
 .car-details-bottom {
   width: 90%;
-  margin: 0 auto;
-  margin-top: 2rem;
+  margin: 2rem auto;
+  /* margin-top: 2rem; */
   padding: 2rem;
   border-radius: 1rem;
-  background: grey;
+  /* background: var(--light-blue); */
 }
 
 .description-title {
@@ -29,7 +29,7 @@
 }
 
 .car-details-bottom__info .row:nth-of-type(odd) {
-  background: rgb(190, 190, 190);
+  background: var(--light-blue);
 }
 
 @media screen and (max-width: 820px) {

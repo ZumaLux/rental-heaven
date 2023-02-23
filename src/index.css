@@ -2,7 +2,15 @@
 
 :root {
   /*Fonts*/
-  --font-family: "Rubik", sans-serif;
+  /* --font-family: "Rubik", sans-serif; */
+  --font-family: "Roboto", sans-serif;
 
   /*Colors*/
+  --dark-blue: #282634;
+  --light-blue: #bad7e9;
+  --blue-v1: #92c5e6;
+  --red: #ff4057;
+  --orange: orange;
+  --dirty-white: rgb(236, 236, 236);
+  /* --body-color: rgb(255, 255, 255); */
 }

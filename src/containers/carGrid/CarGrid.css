@@ -1,5 +1,5 @@
 .car-grid {
-  background-color: rgb(48, 48, 48);
+  background: var(--light-blue);
   padding: 1rem;
 }
 
@@ -9,6 +9,9 @@
   margin: 1rem;
   align-items: center;
   margin: 0;
+  background-color: var(--dark-blue);
+  border-radius: 1rem;
+  margin-bottom: 1rem;
 }
 
 .car-grid__nav {
@@ -55,7 +58,7 @@
   /* max-height: fit-content; */
 
   /* Custom Values */
-  --grid-layout-gap: 0.8rem;
+  --grid-layout-gap: 1rem;
   --grid-column-count: 12;
   --grid-item--min-width: 20rem;
 

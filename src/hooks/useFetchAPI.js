@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import { db } from "../firebase/firebase-config";
 import { collection, getDocs } from "firebase/firestore";
 
-const useFetchAPI = (dbColl) => {
+const useFetchAPI = (dbCollection) => {
   const [data, setData] = useState([]);
   const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState(null);
   const [reload, setReload] = useState(false);
 
-  const ref = collection(db, dbColl);
+  const ref = collection(db, dbCollection);
 
   useEffect(() => {
     const getItems = async() => {

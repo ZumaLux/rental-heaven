@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
+  margin-top: 2rem;
 }
 
 .car-details-top__img-container {
@@ -27,7 +28,9 @@
   padding: 0.5rem 0;
   font-weight: bold;
   text-align: center;
-  background: yellow;
+  background: var(--dark-blue);
+  color: var(--dirty-white);
+  border-radius: 1rem;
 }
 
 .car-details-top__info {
@@ -36,15 +39,18 @@
   column-count: 2;
   margin: 1rem 0;
   padding: 1rem;
-  background-color: grey;
+  /* background-color: var(--light-blue); */
+  /* border: 1px solid grey; */
   font-style: italic;
+  border-radius: 1rem;
 }
 
 .car-details-top__price {
   width: 100%;
   text-align: center;
-  background-color: aqua;
+  background-color: var(--orange);
   padding: 0.5rem;
+  border-radius: 1rem;
 }
 
 .car-details-top__buttons {
@@ -53,7 +59,7 @@
 }
 .car-details-top__buttons .edit-btn {
   width: 49%;
-  background: orange;
+  background: var(--orange);
   padding: 0.5rem;
   float: left;
   border: none;
@@ -64,7 +70,7 @@
 }
 .car-details-top__buttons .del-btn {
   width: 49%;
-  background: red;
+  background: var(--red);
   padding: 0.5rem;
   float: right;
   border: none;
@@ -75,7 +81,7 @@
 }
 .car-details-top__buttons .rent-btn {
   width: 100%;
-  background: rgb(15, 151, 15);
+  background: var(--red);
   padding: 0.5rem;
   border: none;
   border-radius: 1rem;

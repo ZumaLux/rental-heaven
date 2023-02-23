@@ -30,17 +30,21 @@
   margin: 15px 0;
   width: 100%;
   outline: none;
-  color: #fff;
+  color: var(--dirty-white);
   border: none;
   border-radius: 5px;
   font-size: 18px;
   font-weight: 500;
   letter-spacing: 1px;
-  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  /* background: linear-gradient(135deg, #71b7e6, #9b59b6); */
+  /* background: linear-gradient(90deg, rgba(255, 64, 87, 1) 0%, rgba(255, 165, 0, 1) 100%); */
+  background:linear-gradient(90deg, rgba(255, 64, 87, 1) 0%, rgba(150, 80, 150, 1) 100%);
 }
 
 .contacts-top .top-left button:hover {
-  background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+  /* background: linear-gradient(-135deg, #71b7e6, #9b59b6); */
+  /* background: linear-gradient(90deg, rgba(255, 165, 0, 1) 0%, rgba(255, 64, 87, 1) 100%); */
+  background:linear-gradient(90deg, rgba(150, 80, 150, 1) 0%, rgba(255, 64, 87, 1) 100%);
   cursor: pointer;
 }
 
@@ -62,7 +66,7 @@
   font-family: var(--font-family);
   padding: 3rem;
   border: 1px solid black;
-  background: #71b7e6;
+  background: var(--light-blue);
 }
 .contacts-bottom .bot-left {
   width: 50%;
@@ -80,6 +84,7 @@
   width: 2rem;
   height: 2rem;
   margin: 1rem 0.5rem;
+  color: var(--dark-blue);
 }
 
 .contacts-bottom .bot-right {
@@ -103,7 +108,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  border: 1px solid grey;
   text-align: center;
 }
 
@@ -111,7 +115,7 @@
   .contacts-top {
     flex-direction: column-reverse;
     align-items: center;
-    font-size: .9rem;
+    font-size: 0.9rem;
   }
   .contacts-top .top-left {
     width: 80%;
@@ -123,7 +127,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    font-size: .9rem;
+    font-size: 0.9rem;
   }
   .contacts-bottom .bot-left {
     width: 80%;

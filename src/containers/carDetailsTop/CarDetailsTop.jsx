@@ -43,7 +43,7 @@ function CarDetailsTop({ car, updateVehicle, deleteVehicle }) {
         <div>
           <div className="car-details-top__price">
             <h3>$ {car.discPrice}</h3>
-            <h3>-{car.discount}% Discount</h3>
+            {car.discount != 0 && <h3>- {car.discount}% Discount</h3>}
           </div>
           <div className="car-details-top__buttons">
             {isAdminAuth() ? (

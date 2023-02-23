@@ -29,7 +29,7 @@ const CarCard = ({ id, brand, model, fuel, year, seats, img, price, discount, di
           </div>
         </div>
         {discount > 0 && (
-          <div className="item-card__promo">
+          <div className="car-card__promo">
             <span>-{discount}%</span>
           </div>
         )}

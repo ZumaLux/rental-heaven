@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Navbar.css";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/rental-heaven-logo-transparent-low-res.png";
 import { FaBars as BurgirIcon } from "react-icons/fa";
 import { CgClose as BurgirClose } from "react-icons/cg";
 import { useAuthContext } from "../../context/authContext";

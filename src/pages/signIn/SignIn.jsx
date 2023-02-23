@@ -49,8 +49,8 @@ const SignIn = () => {
       <div className="left-part">
         {showRegister ? (
           <form className="form" onSubmit={register}>
-            <h2 className="">Register</h2>
-            <h4 className="">Create new account</h4>
+            <h2 className="title">Register</h2>
+            <h4 className="subtitle">Create new account</h4>
             <input
               className="form-field"
               type="text"
