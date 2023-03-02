@@ -38,7 +38,7 @@
   scale: 1.5;
 }
 .customer-row .opt .edit {
-  color: orange;
+  color: rgb(255, 115, 1);
 }
 
 @media screen and (max-width: 820px) {

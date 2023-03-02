@@ -1,5 +1,6 @@
 .contacts-top {
   width: 100%;
+  margin-top: 5rem;
   padding: 3rem;
   display: flex;
   justify-content: space-between;
@@ -8,6 +9,9 @@
 
 .contacts-top .top-left {
   width: 50%;
+}
+.contacts-top .top-left .title {
+  text-align: center;
 }
 .contacts-top .top-left form {
   width: 100%;
@@ -38,13 +42,13 @@
   letter-spacing: 1px;
   /* background: linear-gradient(135deg, #71b7e6, #9b59b6); */
   /* background: linear-gradient(90deg, rgba(255, 64, 87, 1) 0%, rgba(255, 165, 0, 1) 100%); */
-  background:linear-gradient(90deg, rgba(255, 64, 87, 1) 0%, rgba(150, 80, 150, 1) 100%);
+  background: linear-gradient(90deg, rgba(255, 64, 87, 1) 0%, rgba(150, 80, 150, 1) 100%);
 }
 
 .contacts-top .top-left button:hover {
   /* background: linear-gradient(-135deg, #71b7e6, #9b59b6); */
   /* background: linear-gradient(90deg, rgba(255, 165, 0, 1) 0%, rgba(255, 64, 87, 1) 100%); */
-  background:linear-gradient(90deg, rgba(150, 80, 150, 1) 0%, rgba(255, 64, 87, 1) 100%);
+  background: linear-gradient(90deg, rgba(150, 80, 150, 1) 0%, rgba(255, 64, 87, 1) 100%);
   cursor: pointer;
 }
 

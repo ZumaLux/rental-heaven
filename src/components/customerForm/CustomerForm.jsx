@@ -8,7 +8,7 @@ const CustomerForm = ({ trigger, setTrigger, customerData, updateCustomer }) => 
     const customer = {
       name: e.target.name.value,
       surname: e.target.surname.value,
-      email: e.target.email.value,
+      email: customerData.email,
       phone: e.target.phone.value,
     };
     updateCustomer(customerData.id, customer);
@@ -17,9 +17,9 @@ const CustomerForm = ({ trigger, setTrigger, customerData, updateCustomer }) => 
   };
 
   return trigger ? (
-    <section className="car-form-container">
+    <section className="customer-form-container">
       <div className="overlay"></div>
-      <div className="car-form">
+      <div className="customer-form">
         <div className="title">
           Edit Profile
           <div
@@ -32,7 +32,7 @@ const CustomerForm = ({ trigger, setTrigger, customerData, updateCustomer }) => 
           </div>
         </div>
         <form onSubmit={handleSubmit}>
-          <div className="car-details">
+          <div className="customer-details">
             <div className="input-box">
               <span className="details">Name*</span>
               <input
@@ -55,16 +55,12 @@ const CustomerForm = ({ trigger, setTrigger, customerData, updateCustomer }) => 
               />
             </div>
 
-            <div className="input-box">
-              <span className="details">E-mail*</span>
-              <input
-                type="email"
-                name="email"
-                placeholder="E-mail"
-                defaultValue={customerData ? customerData.email : ""}
-                required
-              />
-            </div>
+            {!customerData && (
+              <div className="input-box">
+                <span className="details">E-mail*</span>
+                <input type="email" name="email" placeholder="E-mail" required />
+              </div>
+            )}
 
             <div className="input-box">
               <span className="details">Phone*</span>
@@ -78,7 +74,7 @@ const CustomerForm = ({ trigger, setTrigger, customerData, updateCustomer }) => 
             </div>
           </div>
 
-          <button type="submit" className="car-reg-button">
+          <button type="submit" className="customer-reg-button">
             Edit
           </button>
         </form>

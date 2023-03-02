@@ -9,7 +9,7 @@
   margin: 1rem;
   align-items: center;
   margin: 0;
-  background-color: var(--dark-blue);
+  /* background-color: var(--dark-blue); */
   border-radius: 1rem;
   margin-bottom: 1rem;
 }

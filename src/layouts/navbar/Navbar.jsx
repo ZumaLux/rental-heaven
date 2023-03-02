@@ -24,7 +24,7 @@ const Navbar = () => {
     <header>
       <nav className="nav">
         <div className="nav-logo">
-          <img src={logo} alt="" />
+          <Link to="/"><img src={logo} alt="" /></Link>
         </div>
         <div className={navActive ? "nav-links " : "nav-links nav-hidden "}>
           <CustomLink to="/" onClick={() => setNavActive(false)}>

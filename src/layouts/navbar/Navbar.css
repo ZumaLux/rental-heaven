@@ -7,7 +7,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* overflow: hidden; */
   background: var(--dark-blue);
 }
 
@@ -25,14 +24,12 @@
 
 .nav-logo {
   height: 100%;
-  width: 100%;
+  width: fit-content;
   padding: 1rem 0;
+  cursor: pointer;
 }
 .nav-logo img {
   height: 100%;
-  /* width: 6rem; */
-  /* scale: 1.5; */
-  /* object-fit: cover; */
 }
 
 .nav-links {

@@ -10,6 +10,7 @@ const Contacts = () => {
     <div className="page-container">
       <section className="contacts-top">
         <div className="top-left">
+          <h1 className="title">Contact us</h1>
           <form>
             <label htmlFor="name">Name</label>
             <input type="text" name="name" />
