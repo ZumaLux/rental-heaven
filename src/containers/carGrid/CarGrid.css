@@ -1,6 +1,6 @@
 .car-grid {
   background: var(--light-blue);
-  padding: 1rem;
+  padding: 1rem 3rem;
 }
 
 .car-grid__nav {

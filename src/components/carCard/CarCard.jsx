@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./CarCard.css";
 
 const CarCard = ({ id, brand, model, fuel, year, seats, img, price, discount, discPrice }) => {
-  
   return (
     <Link className="car-card-link" to={`/cars/${id}`}>
       <div className="car-card">
@@ -20,12 +19,8 @@ const CarCard = ({ id, brand, model, fuel, year, seats, img, price, discount, di
             {brand}&nbsp; {model}
           </span>
           <div className="car-card__price">
-            {discount > 0 && (
-              <span>
-                <s>${price} </s> &ensp;
-              </span>
-            )}
-            ${discPrice}
+            {discount > 0 && <span>${discPrice} </span>}
+            <s>${price} </s> &ensp;
           </div>
         </div>
         {discount > 0 && (
